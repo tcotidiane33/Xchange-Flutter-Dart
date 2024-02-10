@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       home: Home(),
       routes: {
         '/categories': (context) => Categories(),
+        // '/messages': (context) => Messages(),
         '/label': (context) => Label(),
         '/notifications': (context) => Notifications(),
         '/profile': (context) => Profile(),

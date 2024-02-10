@@ -6,7 +6,7 @@ import 'package:flutter_foodybite/screens/profile.dart';
 
 import 'notifications.dart';
 class _MainScreenState extends State<MainScreen> {
-  PageController _pageController; // Déclaration ici
+  PageController _pageController;
 
   int _page = 0;
 

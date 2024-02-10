@@ -1,6 +1,5 @@
 import 'dart:io';
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter_foodybite/screens/categories.dart';
 import 'package:flutter_foodybite/screens/trending.dart';
@@ -43,8 +42,12 @@ class _HomeState extends State<Home> {
             label: 'Categories',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.messenger),
+            label: 'Messages',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.trending_up),
-            label: 'Trending',
+            label: 'Settings',
           ),
           // Ajoutez vos autres éléments ici
         ],
@@ -92,7 +95,6 @@ class HomeContent extends StatelessWidget {
       ),
     );
   }
-
 
   buildRestaurantRow(String restaurant, BuildContext context) {
     return Row(
