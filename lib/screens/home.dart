@@ -1,4 +1,6 @@
 import 'dart:io';
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_foodybite/screens/categories.dart';
 import 'package:flutter_foodybite/screens/trending.dart';
@@ -21,7 +23,7 @@ class _HomeState extends State<Home> {
     HomeContent(),
     Categories(),
     Trending(),
-    // Ajoutez vos autres écrans ici
+    //MainScreen(),
   ];
 
   @override

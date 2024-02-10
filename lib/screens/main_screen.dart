@@ -5,17 +5,12 @@ import 'package:flutter_foodybite/screens/label.dart';
 import 'package:flutter_foodybite/screens/profile.dart';
 
 import 'notifications.dart';
-
-class MainScreen extends StatefulWidget {
-  @override
-  _MainScreenState createState() => _MainScreenState();
-}
-
 class _MainScreenState extends State<MainScreen> {
-  PageController _pageController;
+  PageController _pageController; // Déclaration ici
+
   int _page = 0;
 
-  List icons = [
+  List<IconData> icons = [
     Icons.home,
     Icons.label,
     Icons.add,
@@ -23,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
     Icons.person,
   ];
 
-  List pages = [
+  List<Widget> pages = [
     Home(),
     Label(),
     Add(),
@@ -32,25 +27,30 @@ class _MainScreenState extends State<MainScreen> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(); // Initialisation ici
+  }
+
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         onPageChanged: onPageChanged,
-        children: List.generate(5, (index) =>  pages[index] ),
+        children: List.generate(5, (index) => pages[index]),
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            // SizedBox(width: 7),
             buildTabIcon(0),
             buildTabIcon(1),
             buildTabIcon(3),
             buildTabIcon(4),
-            // SizedBox(width: 7),
           ],
         ),
         color: Theme.of(context).primaryColor,
@@ -63,14 +63,14 @@ class _MainScreenState extends State<MainScreen> {
         child: Icon(
           Icons.add,
         ),
-        onPressed: () => _pageController.jumpToPage(2),
+        onPressed: () => navigationTapped(2),
       ),
     );
   }
 
   void navigationTapped(int page) {
-     _pageController.jumpToPage(page);
-   }
+    _pageController.jumpToPage(page);
+  }
 
   @override
   void initState() {
@@ -89,20 +89,25 @@ class _MainScreenState extends State<MainScreen> {
       this._page = page;
     });
   }
-
-  buildTabIcon(int index) {
-      return Container(
-        margin: EdgeInsets.fromLTRB( index == 3 ? 30 : 0, 0,  index == 1 ? 30 : 0, 0),
+  Widget buildTabIcon(int index) {
+    return Container(
+      margin: EdgeInsets.fromLTRB(
+          index == 3 ? 30 : 0, 0, index == 1 ? 30 : 0, 0),
+      child: IconTheme(
+        data: IconThemeData(
+          color: _page == index
+              ? Theme.of(context).colorScheme.secondary
+              : Theme.of(context).unselectedWidgetColor,
+        ),
         child: IconButton(
           icon: Icon(
             icons[index],
             size: 24.0,
           ),
-          color: _page == index
-              ? Theme.of(context).accentColor
-              : Theme.of(context).textTheme.caption.color,
-          onPressed: () => _pageController.jumpToPage(index),
+          onPressed: () => navigationTapped(index),
         ),
-      );
+      ),
+    );
   }
+
 }

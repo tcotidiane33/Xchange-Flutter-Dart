@@ -1,4 +1,27 @@
 # xfood
+/lib
+    main.dart
+/screens
+    add.dart
+    categories.dart
+    home.dart
+    label.dart
+    main_screen.dart
+    notifications.dart
+    profile.dart
+    trending.dart
+/util
+    categories.dart
+    const.dart
+    friends.dart
+    restaurants.dart
+/widgets
+    category_item.dart
+    search_card.dart
+    slide_item.dart
+    trending_item.dart
+
+/pages
 
 A new Flutter project.
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter_foodybite/screens/main_screen.dart';
+import 'package:flutter_foodybite/screens/categories.dart';
 import 'package:flutter_foodybite/screens/home.dart';
-import 'package:flutter_foodybite/screens/categories.dart'; // Importez vos autres écrans ici
 import 'package:flutter_foodybite/screens/label.dart';
 import 'package:flutter_foodybite/screens/notifications.dart';
 import 'package:flutter_foodybite/screens/profile.dart';
 import 'package:flutter_foodybite/util/const.dart';
-
 
 void main() {
   runApp(const MyApp());
